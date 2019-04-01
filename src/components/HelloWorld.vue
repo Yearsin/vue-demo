@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
       <router-link to="vuex-test">Vuex-demo</router-link>
+      <router-link to="vue-bus-test">Vue-bus-demo</router-link>
   </div>
 </template>
 
@@ -16,3 +17,12 @@ export default {
     }
 };
 </script>
+
+<style scoped>
+a {
+    margin-right: 20px;
+}
+a:last-child {
+    margin-right: 0;
+}
+</style>
