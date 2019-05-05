@@ -3,6 +3,9 @@ import Router from 'vue-router';
 import HelloWorld from '@/components/HelloWorld';
 import vuexTest from '@/components/vuex-test/home';
 import vueBusTest from '@/components/vue-bus-test/home';
+import otherView from '@/components/other/view';
+import other from '@/components/other/index';
+import resetForm from '@/components/other/reset-form';
 
 Vue.use(Router);
 
@@ -22,6 +25,23 @@ export default new Router({
             path: '/vue-bus-test',
             name: 'vue-bus-test',
             component: vueBusTest
+        },
+        {
+            path: '/other',
+            name: 'other',
+            component: other
+        },
+        {
+            path: '/other-view',
+            name: 'other-view',
+            component: otherView,
+            children: [
+                {
+                    path: '/other/reset-form',
+                    name: 'reset-form',
+                    component: resetForm
+                }
+            ]
         }
     ]
 });
