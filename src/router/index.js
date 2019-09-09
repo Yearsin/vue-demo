@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import HelloWorld from '@/components/HelloWorld';
 import vuexTest from '@/components/vuex-test/home';
 import vueBusTest from '@/components/vue-bus-test/home';
+import apis from '@/components/vue-api/index';
 import otherView from '@/components/other/view';
 import other from '@/components/other/index';
 import resetForm from '@/components/other/reset-form';
@@ -25,6 +26,12 @@ export default new Router({
             path: '/vue-bus-test',
             name: 'vue-bus-test',
             component: vueBusTest
+        },
+        {
+
+            path: '/vue-api',
+            name: 'vue-api',
+            component: apis
         },
         {
             path: '/other',

@@ -2,6 +2,7 @@
   <div class="hello">
       <router-link to="vuex-test">Vuex-demo</router-link>
       <router-link to="vue-bus-test">Vue-bus-demo</router-link>
+      <router-link to="vue-api">Vue-api</router-link>
       <router-link to="other">other</router-link>
   </div>
 </template>
