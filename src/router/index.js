@@ -1,45 +1,64 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import HelloWorld from '@/components/HelloWorld';
-import vuexTest from '@/components/vuex-test/home';
-import vueBusTest from '@/components/vue-bus-test/home';
-import otherView from '@/components/other/view';
-import other from '@/components/other/index';
-import resetForm from '@/components/other/reset-form';
+import index from '@/views/layout';
+import home from '@/views/home';
+import gauge from '@/views/echarts/gauge';
+import bing from '@/views/echarts/bing';
+import zhu from '@/views/echarts/zhu';
 
+const originalPush = Router.prototype.push;
+Router.prototype.push = function push (location) {
+    return originalPush.call(this, location).catch(err => err);
+};
 Vue.use(Router);
 
 export default new Router({
     routes: [
         {
             path: '/',
-            name: 'HelloWorld',
-            component: HelloWorld
-        },
-        {
-            path: '/vuex-test',
-            name: 'vuex-test',
-            component: vuexTest
-        },
-        {
-            path: '/vue-bus-test',
-            name: 'vue-bus-test',
-            component: vueBusTest
-        },
-        {
-            path: '/other',
-            name: 'other',
-            component: other
-        },
-        {
-            path: '/other-view',
-            name: 'other-view',
-            component: otherView,
+            component: index,
             children: [
                 {
-                    path: '/other/reset-form',
-                    name: 'reset-form',
-                    component: resetForm
+                    path: '/home',
+                    name: 'home',
+                    component: home,
+                    meta: {
+                        title: '工作台'
+                    }
+                }
+            ]
+        },
+        {
+            path: '/echars',
+            name: 'index',
+            component: index,
+            meta: {
+                title: '图表'
+            },
+            children: [
+                {
+                    path: '/gauge',
+                    name: 'gauge',
+                    component: gauge,
+                    meta: {
+                        title: '仪表盘'
+                    }
+                },
+                {
+                    path: '/bing',
+                    name: 'bing',
+                    component: bing,
+                    meta: {
+                        title: '饼图'
+                    }
+                },
+                {
+                    path: '/zhu',
+                    name: 'zhu',
+                    component: zhu,
+                    meta: {
+                        title: '柱状图'
+                    }
                 }
             ]
         }
